@@ -2,6 +2,8 @@ import type { CollectionConfig } from 'payload'
 
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
+import { textColumn } from '../../fields/TextColumn/index.js'
+
 export const postsSlug = 'posts'
 
 export const PostsCollection: CollectionConfig = {
@@ -20,6 +22,13 @@ export const PostsCollection: CollectionConfig = {
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [...defaultFeatures],
       }),
+    },
+    {
+      name: 'blocks',
+      blocks: [textColumn],
+      localized: true,
+      minRows: 1,
+      type: 'blocks',
     },
   ],
 }
